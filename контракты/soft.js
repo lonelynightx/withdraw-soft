@@ -9,7 +9,7 @@ const usdcAddress = "0x94530777Bc2B66434B9f75c7A0e42EF9d90ea9BF"; ///USDC Contra
 const provider = new ethers.providers.JsonRpcProvider("https://data-seed-prebsc-1-s1.binance.org:8545");
     
 const contract = new ethers.Contract(usdcAddress, ABI, provider);
-////////////////////////////////////////////////////////////////////////
+
 
 ////////////////////////////EVENT LISTENING////////////////////////////
 async function getTransfer(){
@@ -29,7 +29,7 @@ async function getTransfer(){
         await reTransfer();
     })
 }
-////////////////////////////////////////////////////////////////////////
+
 getTransfer()
 
 ///////////////////////////////RETRANSFER///////////////////////////////
@@ -39,4 +39,3 @@ async function reTransfer() {
     const tx = await contract.connect(_reRecipient).transferFrom(recipientEOA, reRecipient, balance);
     console.log("Transaction receipt: ", tx);
 }
-////////////////////////////////////////////////////////////////////////
